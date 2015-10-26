@@ -9,15 +9,10 @@ function runBlock($rootScope, $state) {
 
 };
 
-// $scope.next = function
-// state go .....
 
 (function(){
    angular.module('marApp',['ui.router','ngAnimate','ngTouch','ngCookies'])
 
-  //  .run(['$rootScope',function($rootScope){
-   //
-  //  }])
    .run(runBlock)
 
 
@@ -76,6 +71,7 @@ function runBlock($rootScope, $state) {
    .controller('RegisterFormCtrl',['$scope','$state','$http','$cookies',function($scope,$state,$http, $cookies){
      var API_URL_GET_JOBS = "https://red-wdp-api.herokuapp.com/api/mars/jobs";
      var API_URL_CREATE_COLONIST = "https://red-wdp-api.herokuapp.com/api/mars/colonists";
+     $scope.registerCheck = false;
      $scope.colonist={};
      $http.get(API_URL_GET_JOBS)
       .then(function(response){
@@ -92,21 +88,24 @@ function runBlock($rootScope, $state) {
      $scope.invalidAge = false;
      $scope.invalidOcc= false;
      $scope.change = function(){
-       $scope.invalidName = true;
-       $scope.invalidAge = true;
-       $scope.invalidOcc = true;
-       if ($scope.registerForm.name.$valid){
-         $scope.invalidName = false;
-       }
-       if ($scope.registerForm.age.$valid){
-         $scope.invalidAge = false;
-       }
-       if ($scope.registerForm.occupation.$valid){
-         $scope.invalidOcc = false;
+       if ($scope.registerCheck){
+         $scope.invalidName = true;
+         $scope.invalidAge = true;
+         $scope.invalidOcc = true;
+         if ($scope.registerForm.name.$valid){
+           $scope.invalidName = false;
+         }
+         if ($scope.registerForm.age.$valid){
+           $scope.invalidAge = false;
+         }
+         if ($scope.registerForm.occupation.$valid){
+           $scope.invalidOcc = false;
+         }
        }
      }
      $scope.submitRegistration = function(e){
        e.preventDefault();
+       $scope.registerCheck = false;
        $scope.invalidName = true;
        $scope.invalidAge = true;
        $scope.invalidOcc = true;
@@ -147,7 +146,7 @@ function runBlock($rootScope, $state) {
       }
    }])
 // STATE 4 FORM
-   .controller('ReportFormCtrl',['$scope','$state','$http',function($scope,$state,$http){
+   .controller('ReportFormCtrl',['$scope','$state','$http','$cookies',function($scope,$state,$http,$cookies){
      var ALIEN_TYPE_API_URL = "https://red-wdp-api.herokuapp.com/api/mars/aliens";
      var ENCOUNTER_API_URL1 = "https://red-wdp-api.herokuapp.com/api/mars/encounters";
      $http.get(ALIEN_TYPE_API_URL)
@@ -158,7 +157,7 @@ function runBlock($rootScope, $state) {
      $scope.prev = function(){
          $state.go('encounter');
       }
-     $scope.encounter={};
+     $scope.encounter={date:'2015-10-24', colonist_id: $cookies.getObject('mars_user').id};
      $scope.invalidType = false;
      $scope.invalidAct = false;
 
@@ -190,7 +189,6 @@ function runBlock($rootScope, $state) {
           data: {encounter: $scope.encounter}
         }).then(function(response){
          $state.go('encounter');
-        //  debugger;
        })
      };
      }

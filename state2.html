@@ -10,8 +10,8 @@
           <input ng-model="colonist.age" ng-change="change()" name="age" type="number" placeholder="Age" required ng-class="{'notvalid': invalidAge}"/>
 <!-- doi invalid.... vao trong ham ng-change  -->
           <div class="select-wrap">
-            <select ng-model="colonist.job_id" ng-change="change()" name="occupation" required ng-class="{'notvalid': invalidOcc}" placeholder="Select Occupation" ng-class="{'placeholder':colonist.job_id}">
-                <option value="" class="placeholder">Select occupation</option>
+            <select ng-model="colonist.job_id" ng-change="change()" name="occupation" required ng-class="{'notvalid': invalidOcc}" ng-class="{'placeholder': $first}" >
+                <option value="">Select occupation</option>
                 <option value="{{job.id}}"ng-repeat="job in jobs">{{job.name}}
                 </option>
             </select>

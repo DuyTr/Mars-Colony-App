@@ -95,15 +95,16 @@ header{
   margin: 15px 0;
   @extend %flex-prop;
   select{
+    border:none;
     width: 100%;
     line-height: 35px;
-    option[value=””]{
-      color:$button-color;
-    }
+
     }
 }
 
-
+.placeholder{
+  color:$button-color;
+}
 
 .submit-footer{
   background: black;
