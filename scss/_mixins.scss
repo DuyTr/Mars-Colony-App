@@ -1,0 +1,16 @@
+$smallbreakpoint: 600px;
+$largebreakpoint: 1000px;
+
+
+@mixin bp($point) {
+  $bp-tablet: "(min-width: #{$smallbreakpoint})";
+  $bp-desktop: "(min-width: #{$largebreakpoint})";
+  @if $point == desktop {
+    @media #{$bp-desktop} { @content; }
+  }
+
+
+  @else if $point == tablet {
+    @media #{$bp-tablet} { @content; }
+  }
+}

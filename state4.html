@@ -1,0 +1,26 @@
+
+<div class="dark-bg state4" ng-swipe-right="prev()">
+    <header>
+      <h2>Who are you?</h2>
+      <h3>Safety on Mars is your responsibility</h3>
+    </header>
+    <div>
+      <form ng-submit="submitReport($event)" name="reportForm" novalidate >
+        <div class="body">
+          <div class="select-wrap">
+            <select ng-model="encounter.atype" ng-change="change()" name="type" required ng-class="{'notvalid': invalidType}" placeholder="Select an Alien type">
+              <option value="" selected>Select an Alien type</option>
+              <option value="{{alien.id}}"ng-repeat="alien in aliens">
+              {{alien.type}}
+              </option>
+            </select>
+          </div>
+          <textarea ng-model="encounter.action" ng-change="change()" name="act" required ng-class="{'notvalid': invalidAct}" placeholder="Action Taken">
+          </textarea>
+        </div>
+        <div class="submit-footer">
+          <button type="submit">Submit a Report</button>
+        </div>
+      </form>
+    </div>
+</div>

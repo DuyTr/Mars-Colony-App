@@ -1,0 +1,64 @@
+$font-color: #2e2e2e;
+$button-color: #ed4343;
+$grid-color: #c2c2c2;
+$img-color : #dbdbdb;
+
+
+@keyframes border-pulse {
+  0%   {
+	box-shadow:
+		0 0 0 1rem rgba(255, 255, 255, 0.1),
+		0 0 0 2rem rgba(255, 255, 255, 0.15),
+		0 0 0 3rem rgba(0, 0, 0, 0.2);
+  }
+  50%  {
+
+	box-shadow:
+		0 0 0 1.25rem rgba(255, 255, 255, 0.1),
+		0 0 0 2.75rem rgba(255, 255, 255, 0.1),
+		0 0 0 4rem rgba(0, 0, 0, 0);
+
+	}
+ 75%  {
+
+	box-shadow:
+		0 0 0 1.50rem rgba(255, 255, 255, 0.1),
+		0 0 0 3rem rgba(255, 255, 255, 0),
+		0 0 0 5rem rgba(0, 0, 0, 0);
+
+	}
+  100% {
+
+	box-shadow:
+		0 0 0 1.75rem rgba(255, 255, 255, 0),
+		0 0 0 3.75rem rgba(255, 255, 255, 0),
+		0 0 0 6rem rgba(0, 0, 0, 0);
+
+   }
+}
+
+
+.pulse-circle {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:lightgrey;
+  animation: border-pulse 3s infinite ease-in-out;
+}
+
+@keyframes flashing-border{
+  0%   {
+	box-shadow:	0 0 0 .5rem rgba(255, 0, 0, 0.4)
+  }
+  0%   {
+	box-shadow:0 0 0 .5rem rgba(255, 0, 0, 0.4)
+  }
+  0%   {
+	box-shadow:0 0 0 .5rem rgba(255, 0, 0, 0.4)
+  }
+}
+
+.notvalid{
+  border-radius: 1%;
+  animation: flashing-border 1s infinite ease-in-out;
+}

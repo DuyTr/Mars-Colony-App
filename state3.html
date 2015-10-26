@@ -1,0 +1,18 @@
+
+<div class="bright-bg state3" ng-swipe-right="prev()" ng-swipe-left="next()">
+    <header>
+      <h2>Recent Encouters</h2>
+      <h3>See an Alien? Report it!
+    </header>
+    <div class="encounter-body">
+      <ul>
+        <li ng-repeat="encounter in encounters">
+          <p>{{encounter.date}} - {{encounter.atype}} <br/>
+          {{encounter.action}} </p>
+        </li>
+      </ul>
+    </div>
+    <div class="submit-footer">
+      <button type="submit" ui-sref="report">Report Encouter</button>
+    </div>
+</div>
