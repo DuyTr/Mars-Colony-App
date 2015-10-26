@@ -153,11 +153,12 @@ function runBlock($rootScope, $state) {
       .then(function(response){
           $scope.aliens = response.data.aliens;
       });
-
+     var date = new Date();
      $scope.prev = function(){
          $state.go('encounter');
       }
-     $scope.encounter={date:'2015-10-24', colonist_id: $cookies.getObject('mars_user').id};
+
+     $scope.encounter={date:date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate(), colonist_id: $cookies.getObject('mars_user').id};
      $scope.invalidType = false;
      $scope.invalidAct = false;
 
