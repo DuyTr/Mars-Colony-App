@@ -8,7 +8,6 @@
         <div class="body">
           <input ng-model="colonist.name" ng-change="change()" name="name "type="text" placeholder="Name" ng-minlength="2" required ng-class="{'notvalid': invalidName}"/>
           <input ng-model="colonist.age" ng-change="change()" name="age" type="number" placeholder="Age" required ng-class="{'notvalid': invalidAge}"/>
-<!-- doi invalid.... vao trong ham ng-change  -->
           <div class="select-wrap">
             <select ng-model="colonist.job_id" ng-change="change()" name="occupation" required ng-class="{'notvalid': invalidOcc}" ng-class="{'placeholder': $first}" >
                 <option value="">Select occupation</option>

@@ -3,12 +3,10 @@
 var gulp = require('gulp'); // Load Gulp!
 var autoprefixer = require('gulp-autoprefixer');
 var historyApiFallback = require('connect-history-api-fallback');
-
-// Now that we've installed the uglify package
-// we can require it!
-
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
+var rename = require('gulp-rename');
+
 
 gulp.task('scss', function () {
   gulp.src('./scss/**/*.scss')
@@ -16,7 +14,10 @@ gulp.task('scss', function () {
     .pipe(autoprefixer({
          browsers: ['last 2 versions']
       }))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./css'))
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(rename('main.min.css'))
+    .pipe(gulp.dest('./build/css'));
 });
 
 

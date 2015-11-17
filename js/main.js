@@ -105,7 +105,7 @@ function runBlock($rootScope, $state) {
      }
      $scope.submitRegistration = function(e){
        e.preventDefault();
-       $scope.registerCheck = false;
+       $scope.registerCheck = true;
        $scope.invalidName = true;
        $scope.invalidAge = true;
        $scope.invalidOcc = true;
@@ -149,6 +149,7 @@ function runBlock($rootScope, $state) {
    .controller('ReportFormCtrl',['$scope','$state','$http','$cookies',function($scope,$state,$http,$cookies){
      var ALIEN_TYPE_API_URL = "https://red-wdp-api.herokuapp.com/api/mars/aliens";
      var ENCOUNTER_API_URL1 = "https://red-wdp-api.herokuapp.com/api/mars/encounters";
+     $scope.reportCheck = false;
      $http.get(ALIEN_TYPE_API_URL)
       .then(function(response){
           $scope.aliens = response.data.aliens;
@@ -163,18 +164,21 @@ function runBlock($rootScope, $state) {
      $scope.invalidAct = false;
 
      $scope.change = function(){
-       $scope.invalidType = true;
-       $scope.invalidAct = true;
-       if ($scope.reportForm.type.$valid){
-         $scope.invalidType = false;
-       }
-       if ($scope.reportForm.act.$valid){
-         $scope.invalidAct = false;
+       if ($scope.reportCheck){
+         $scope.invalidType = true;
+         $scope.invalidAct = true;
+         if ($scope.reportForm.type.$valid){
+           $scope.invalidType = false;
+         }
+         if ($scope.reportForm.act.$valid){
+           $scope.invalidAct = false;
+         }
        }
      }
 
      $scope.submitReport = function(e){
        e.preventDefault();
+       $scope.reportCheck = true;
        $scope.invalidType = true;
        $scope.invalidAct = true;
        if ($scope.reportForm.type.$valid){

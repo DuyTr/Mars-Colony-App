@@ -1,5 +1,4 @@
 @import 'variables';
-@import 'mixins';
 @import 'reset';
 @import 'base';
 
@@ -18,7 +17,6 @@
 header{
   height: 15vh;
   width: 100%;
-
   @extend %flex-prop;
 }
 
@@ -44,6 +42,12 @@ header{
     background: white;
     box-sizing: border-box;
     appearance: none;
+  }
+  select{
+    color: $button-color;
+  }
+  select.ng-valid{
+    color: black;
   }
 
   ::-webkit-input-placeholder {
@@ -113,6 +117,7 @@ header{
   width: 100%;
   @extend %flex-prop;
   button {
+    font-size: 1.2rem;
     background: $button-color;
     border: none;
     width: 95%;
@@ -122,6 +127,8 @@ header{
 
 form{
   @extend %flex-prop;
+  font-family: 'Raleway';
+  font-size: 1.1rem;
 }
 
 //animation

@@ -469,8 +469,8 @@ x:-o-prefocus, .custom-select::after {
 /*  Fonts  */
 @font-face {
   font-family: 'RobotoSlab';
-  src: url("../assets/fonts/RobotoSlab-Regular-webfont.eot");
-  src: url("../assets/fonts/RobotoSlab-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/RobotoSlab-Regular-webfont.woff") format("woff"), url("../assets/fonts/RobotoSlab-Regular-webfont.ttf") format("truetype"), url("../assets/fonts/RobotoSlab-Regular-webfont.svg#raleway-regular") format("svg");
+  src: url("../../assets/fonts/RobotoSlab-Regular-webfont.eot");
+  src: url("../../assets/fonts/RobotoSlab-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/RobotoSlab-Regular-webfont.woff") format("woff"), url("../../assets/fonts/RobotoSlab-Regular-webfont.ttf") format("truetype"), url("../../assets/fonts/RobotoSlab-Regular-webfont.svg#raleway-regular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -486,8 +486,8 @@ h2 {
   margin: .75em 0 0 0; }
 
 h3 {
-  font-size: 2.0em;
-  margin: .75em 0 0 0; }
+  font-size: 1.5em;
+  margin: -.30em 0 0 0; }
 
 h1, h2 {
   font-weight: bold; }
@@ -558,6 +558,10 @@ header {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none; }
+  .body select {
+    color: #ed4343; }
+  .body select.ng-valid {
+    color: black; }
   .body ::-webkit-input-placeholder {
     color: #ed4343;
     padding-left: 5px; }
@@ -611,10 +615,15 @@ header {
   height: 35vh;
   width: 100%; }
   .submit-footer button {
+    font-size: 1.2rem;
     background: #ed4343;
     border: none;
     width: 95%;
     padding: 25px 0; }
+
+form {
+  font-family: 'Raleway';
+  font-size: 1.1rem; }
 
 .ui-view-container {
   position: absolute;

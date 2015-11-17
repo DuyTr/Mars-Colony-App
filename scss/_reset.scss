@@ -433,6 +433,7 @@ th {
     display: block;
     padding: 0;
     width: 100%;
+
 }
 /* This is the native select, we're making everything but the text invisible so we can see the button styles in the wrapper */
 .custom-select select {
@@ -443,7 +444,6 @@ th {
     outline: none;
     box-sizing: border-box;
     /* Remove select styling */
-
     appearance: none;
 }
 /* Custom arrow sits on top of the select - could be an image, SVG, icon font, etc. or the arrow could just baked into the bg image on the select. Note this si a 2x image so it will look bad in browsers that don't support background-size. In production, you'd handle this resolution switch via media query but this is a demo. */
