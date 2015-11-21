@@ -22,14 +22,14 @@ function runBlock($rootScope, $state) {
           function($stateProvider,$urlRouterProvider,$locationProvider){
             //routing code ....
       $locationProvider.html5Mode({
-        enabled: true,
+        enabled: false,
         requireBase: false,
         rewriteLinks: false
       });
 
       $stateProvider
         .state('welcome',{
-          url: '/',
+          url: '',
           templateUrl:'state1.html',
           controller: ['$cookies','$scope','$state',function($cookies,$scope,$state){
             $cookies.putObject('mars_user',undefined);
