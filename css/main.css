@@ -559,7 +559,8 @@ header {
        -moz-appearance: none;
             appearance: none; }
   .body select {
-    color: #ed4343; }
+    color: #ed4343;
+    padding-left: 10px; }
   .body select.ng-valid {
     color: black; }
   .body ::-webkit-input-placeholder {

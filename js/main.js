@@ -20,7 +20,6 @@ function runBlock($rootScope, $state) {
             '$urlRouterProvider',
             '$locationProvider',
           function($stateProvider,$urlRouterProvider,$locationProvider){
-            //routing code ....
       $locationProvider.html5Mode({
         enabled: false,
         requireBase: false,
